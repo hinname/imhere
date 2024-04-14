@@ -20,12 +20,28 @@ export const styles = StyleSheet.create({
   },
 
   input : {
-    backgroundColor: '#1F1E25',
+    backgroundColor: '#1f1e25',
     height: 56,
     borderRadius: 8,
     marginTop: 24,
-    color: '#FDFCFE',
+    color: '#fdfcfe',
     padding: 16,
     fontSize: 16,
+  },
+
+  buttonText: {
+    color: '#fdfcfe',
+    fontSize: 24,
+    textAlign: 'center',
+  },
+
+  button: {
+    width: 56,
+    height: 56,
+    marginTop: 12,
+    borderRadius: 5,
+    backgroundColor: '#31cf67',
+    alignItems: 'center',
+    justifyContent: 'center',
   }
 });
