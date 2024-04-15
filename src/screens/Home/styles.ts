@@ -20,13 +20,14 @@ export const styles = StyleSheet.create({
   },
 
   input : {
+    flex: 1,
     backgroundColor: '#1f1e25',
     height: 56,
     borderRadius: 8,
-    marginTop: 24,
     color: '#fdfcfe',
     padding: 16,
     fontSize: 16,
+    marginRight: 7,
   },
 
   buttonText: {
@@ -38,10 +39,16 @@ export const styles = StyleSheet.create({
   button: {
     width: 56,
     height: 56,
-    marginTop: 12,
     borderRadius: 5,
     backgroundColor: '#31cf67',
     alignItems: 'center',
     justifyContent: 'center',
+  },
+
+  form: {
+    width: '100%',
+    marginTop: 36,
+    marginBottom: 48,
+    flexDirection: 'row',
   }
 });
