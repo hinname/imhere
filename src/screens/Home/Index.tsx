@@ -25,8 +25,8 @@ export default function Home() {
           <Text style={styles.buttonText}>+</Text>
         </TouchableOpacity>
       </View>
-      <Participant />
-      <Participant />
+      <Participant name='Herivelton' />
+      <Participant name='Narayana' />
       <StatusBar style="light" />
     </View>
   );
