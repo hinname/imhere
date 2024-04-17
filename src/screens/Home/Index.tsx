@@ -1,5 +1,6 @@
+import { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { Text, View, TextInput, TouchableOpacity, ScrollView } from 'react-native';
+import { Text, View, TextInput, TouchableOpacity, ScrollView, Alert } from 'react-native';
 
 import {styles} from './styles';
 
@@ -9,13 +10,31 @@ export default function Home() {
   const participants = ['Herivelton', 
   'João', 'Maria', 'Ana', 'Pedro', 
   'Lucas', 'Gabriel', 'Rafael', 'Paulo', 
-  'Luciana', 'Mariana', 'Juliana', 'Júlia']
+  'Luciana', 'Mariana', 'Juliana', 'Júlia'];
 
-  function handleParticipantAdd() {
+  const [participantName, setParticipantName] = useState('');
+
+  function handleParticipantAdd(name: string) {
+    if (!name) {
+      return Alert.alert('Preencha o campo corretamente!', 'Digite o nome do participante');
+    }
+    if(participants.includes(name)){
+      return Alert.alert('Participante existe', 'Já existe um paticipante na lista com esse nome');
+    }
     console.log('Adicionar participante');
   }
 
   function handleParticipantRemove(name: string) {
+    Alert.alert('Remover participante', `Deseja remover o(a) participante ${name}?`, [
+      {
+        text: 'Sim',
+        onPress: () => Alert.alert('Participante removido', `O(A) participante ${name} foi removido com sucesso!`)
+      },
+      {
+        text: 'Não',
+        style: 'cancel'
+      }
+    ]);
     console.log(`Remover participante ${name}`);
   }
 
@@ -27,9 +46,10 @@ export default function Home() {
         <TextInput 
           style={styles.input}
           placeholder='Nome do participante'
-          placeholderTextColor={'#6b6b6b'} 
+          placeholderTextColor={'#6b6b6b'}
+          onChangeText={(value) => {setParticipantName(value)}}
         />
-        <TouchableOpacity style={styles.button} onPress={handleParticipantAdd}>
+        <TouchableOpacity style={styles.button} onPress={() => handleParticipantAdd(participantName)}>
           <Text style={styles.buttonText}>+</Text>
         </TouchableOpacity>
       </View>
