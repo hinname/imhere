@@ -19,6 +19,7 @@ export default function Home() {
       return Alert.alert('Participante existe', 'Já existe um paticipante na lista com esse nome');
     }
     setParticipants([...participants, name]);
+    setParticipantName('');
   }
 
   function handleParticipantRemove(name: string) {
@@ -48,7 +49,8 @@ export default function Home() {
           style={styles.input}
           placeholder='Nome do participante'
           placeholderTextColor={'#6b6b6b'}
-          onChangeText={(value) => {setParticipantName(value)}}
+          onChangeText={setParticipantName}
+          value={participantName}
         />
         <TouchableOpacity style={styles.button} onPress={() => handleParticipantAdd(participantName)}>
           <Text style={styles.buttonText}>+</Text>
